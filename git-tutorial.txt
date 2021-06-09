@@ -1,27 +1,43 @@
 	Как добавить в код проекта изменения
 
-1. Зайти в папку: [cd] + [название папки]
-cd test-project
+0. Проверить в какой ветке
+git checkout
 
-2. Переместиться в ветку master: [git checkout] + [название ветки]
+1. Переместиться в ветку master: [git checkout] + [название ветки]
 git checkout master
 
-3. Обновить до состояния релиза: [git] + [pull]
+2. Обновить до состояния релиза: [git] + [pull]
 git pull
 
-4. Добавить ветку от той, в которой я был (от мастера): [git checkout -b] + [название ветки]
+3. Добавить ветку от той, в которой я был (от мастера): [git checkout -b] + [название ветки]
 git checkout -b test
 
-5. Изменить код в проекте.
+4. Изменить код в проекте.
 
-6. Добавить все файлы: [git add] + [.]
+5. Добавить все файлы: [git add] + [.]
 git add .
 
-7. Добавить комментарии: [git commit -m] + ['комментарии']
+6. Добавить комментарии: [git commit -m] + ['комментарии']
 git commit -m 'тестовый комментарий'
 
-8. Добавить изменения в ветку: [git push origin] + [название ветки]
+7. Добавить изменения в ветку: [git push origin] + [название ветки]
 git push origin test
+
+8. Слить ветку локальную (test) с веткой master:
+git checkout master
+git merge test
+
+
+
+	Добавить ssh ключ для доступа
+
+Команды для git bush:
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/grandmodels-index
+
+Ссылка на добавление:
+https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
 
 
 	Как лучше называть коммиты
