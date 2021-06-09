@@ -3,7 +3,7 @@
 # Каждый файл будет запущен в своём docker-контейнере, по сути будет поднята своя ОС под этот файл
 # Actions можно настроить также, как и cron-задачу, чтобы он запускался каждый определённый интервал
 
-name: Simple_Test
+name: Simple-Test
 
 # Глобальные переменные
 env:
@@ -57,10 +57,10 @@ jobs:
       LOCAL_JOB_VAR: "This is Job Level Variable"
     
     steps:
-      - name: List current folder
+      - name: List of variables
         run: |
           echo "Job_var = ${{env.LOCAL_JOB_VAR}}"
-          echo "Step_var = ${{env.LOCAL_STEP_VAR}}"
+          echo "Step_var = $LOCAL_STEP_VAR"
         env:
           LOCAL_STEP_VAR: "This is only Step Level Variable"
           
