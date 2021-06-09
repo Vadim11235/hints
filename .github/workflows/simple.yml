@@ -1,0 +1,51 @@
+# Все файлы с расширением *.yml, которые созданы в папке workflows, будут автоматически запущены и проверены Github
+# Те файлы, которые настроены на триггер, который сейчас сработал - будут запущены до конца
+# Каждый файл будет запущен в своём docker-контейнере, по сути будет поднята своя ОС под этот файл
+# Actions можно настроить также, как и cron-задачу, чтобы он запускался каждый определённый интервал
+
+name: Simple_Test
+
+# Глобальные переменные
+env:
+  APP_NAME: "Test_Code"
+  DEPLOY_VERSION: "version-${{github.sha}}"
+
+on:
+  push:
+    branches: [ master ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  hello_world:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print "Hellow World message"
+        run: echo Hello, world!
+
+      - name: Print a multi-line script
+        run: |
+          echo "App: ${{env.APP_NAME}}"
+          echo "v: ${{env.DEPLOY_VERSION}}"
+
+
+  another_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: List current folder
+        run: ls -la
+
+      # клонировать репозиторий с помощью внешней команды
+      # как checkout
+      - name: Git clone my repo
+        uses: actions/checkout/@v1
+      
+      - name: List current folder after clone
+        run: ls -la
+      
+      - name: Lets test some packages if they are here 'aws'
+        run: aws --version
+
+      - name: Lets test some packages if they are here 'zip'
+        run: zip
