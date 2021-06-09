@@ -1,0 +1,64 @@
+	Как добавить в код проекта изменения
+
+1. Зайти в папку: [cd] + [название папки]
+cd test-project
+
+2. Переместиться в ветку master: [git checkout] + [название ветки]
+git checkout master
+
+3. Обновить до состояния релиза: [git] + [pull]
+git pull
+
+4. Добавить ветку от той, в которой я был (от мастера): [git checkout -b] + [название ветки]
+git checkout -b test
+
+5. Изменить код в проекте.
+
+6. Добавить все файлы: [git add] + [.]
+git add .
+
+7. Добавить комментарии: [git commit -m] + ['комментарии']
+git commit -m 'тестовый комментарий'
+
+8. Добавить изменения в ветку: [git push origin] + [название ветки]
+git push origin test
+
+
+	Как лучше называть коммиты
+
+1. [Название таска из jira] - [короткий комментарий, что было сделано]
+2. Полный комментарий в коммит, что сделано
+
+
+	Команды Git
+
+1. Клонировать проект себе в папку: [git clone] + [link из кнопки <clone> из git <ssh clone>]
+git clone git@gitlab.com:test.io/test.git
+
+2. Узнать в какой ветке я нахожусь: [git] + [checkout]
+git checkout
+
+3. Переместиться в ветку master: [git checkout] + [название ветки]
+git checkout master
+
+4. Удалить локальную ветку:
+git branch -d <имя_ветки>
+
+5. Удалить удалённую ветку:
+git push origin --delete <имя_ветки>
+или
+git push origin :<имя_ветки>
+
+6. Слить ветку локальную (news) с веткой master:
+git checkout master
+git merge news
+
+
+По git посмотреть подробнее про github pages:
+https://pages.github.com/
+
+По git учебник: https://git-scm.com/book/ru/v2
+https://habr.com/ru/post/233899/
+
+Добавить ssh ключ для доступа
+https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
